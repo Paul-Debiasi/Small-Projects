@@ -2,10 +2,28 @@
 var a;
 
 function logType(a) {
-    if (a === undefined) {
+    if (typeof a === undefined) {
         console.log("Undefined");
-    } else if (a === null) {
+    } else if (typeof a === null) {
         console.log("Null");
+    } else if (typeof a === Number) {
+        console.log("number!");
+    } else if (isNaN(a)) {
+        console.log("not a number!");
+    } else if (typeof a === String) {
+        console.log("string!");
+    } else if (typeof a === Boolean) {
+        console.log("boolean!");
+    } else if (typeof a === BigInt) {
+        console.log("bigint!");
+    } else if (typeof a === Function) {
+        console.log("function!");
+    } else if (typeof a === Object) {
+        console.log("object!");
+    } else if (Array.isArray([])) {
+        console.log("array!");
+    } else {
+        console.log("I have no idea!");
     }
 }
 
