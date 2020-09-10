@@ -24,8 +24,19 @@ header {
     width: 50px;
     float: right;
 }
+button {
+    border: 5px solid goldenrod;
+    border-radius: 25px;
+    color: goldenrod;
+    background: rgb(243, 229, 106);
+    margin: 8px;
+    height: 40px;
+    width: 180px;
+    padding: 2px;
+}
 
 a {
+    filter: brightness(0.9);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,64 +54,68 @@ h3 {
 
 .container {
     background: url(assets/spices.jpg) no-repeat;
+    transition: all;
     box-sizing: border-box;
     background-size: cover;
-    height: 75vh;
+    height: 700px;
     width: 100%;
+    margin: 0;
+    filter: brightness(0.7);
 
     /* position: relative; */
 }
-
-.ground {
-    position: relative;
-
-    width: auto;
-}
-
-img.swim {
-    width: 40px;
-    height: 40px;
-}
-
-img.world {
-    width: 40px;
-    height: 40px;
-}
-
 img.cat {
+    padding: 20px;
+    width: 40px;
+    height: 40px;
+}
+.features {
+    float: right;
+}
+img.swim {
+    padding: 20px;
     width: 40px;
     height: 40px;
     float: left;
 }
 
-img.temple {
+.taste {
+    float: right;
+}
+
+img.world {
+    padding: 20px;
     width: 40px;
     height: 40px;
 }
 
-footer {
-    margin: 0 auto;
-    width: 100%;
-    height: 30%;
-    background: gray;
+.service {
+}
+img.temple {
+    padding: 20px;
+    width: 40px;
+    height: 40px;
+}
+.limits {
 }
 
-.features {
-    float: right;
+footer {
+    box-sizing: border-box;
+    background: gray;
+    height: 200px;
 }
 
 .col-1 {
-    position: absolute;
-
+    float: left;
     width: 50%;
-    padding: 10px 0 10px 50px;
-    background: gray;
+    height: 200px;
+    margin: 0 auto;
 }
 
 .col-2 {
-    z-index: 1;
     float: right;
+    align-self: initial;
     width: 50%;
-    padding: 10px 50px 10px 0;
-    background: gray;
+    height: 200px;
+    margin: 0 auto;
 }
