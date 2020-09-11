@@ -68,6 +68,8 @@ img.cat {
     padding: 20px;
     width: 40px;
     height: 40px;
+    position: relative;
+    left: 100px;
 }
 .features {
     float: right;
@@ -77,26 +79,43 @@ img.swim {
     width: 40px;
     height: 40px;
     float: left;
+	position: relative;
+	left: 100px;
+    
 }
 
 .taste {
-    float: right;
+	position: absolute;
+	float: right;
+	left: 170px;
+	width: 500px;
+	
 }
 
 img.world {
+    float: left;
     padding: 20px;
     width: 40px;
     height: 40px;
 }
 
 .service {
+    position: absolute
+	float: right;
+	
 }
 img.temple {
+	position: relative;
+	float: left;
     padding: 20px;
     width: 40px;
     height: 40px;
 }
 .limits {
+	position: absolute;
+	float: right;
+	
+	
 }
 
 footer {
