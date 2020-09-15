@@ -1,0 +1,18 @@
+#headlines {
+    position: absolute;
+    left: 100%;
+    white-space: nowrap;
+}
+
+#headlines a {
+    padding-right: 30px;
+    border: 1px tomato solid;
+}
+
+#ticker {
+    /* overflow: hidden; */
+    width: 100%;
+    position: relative;
+    border: 2px sienna solid;
+    height: 1.5em;
+}

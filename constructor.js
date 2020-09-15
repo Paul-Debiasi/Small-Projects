@@ -1,23 +1,23 @@
 // Exercise I
 
 function Rectangle(width, height) {
-    (this.num1 = width),
-        (this.num2 = height),
-        (this.getArea = function () {
-            console.log(this.num1 * this.num2);
-        });
+    this.num1 = width;
+    this.num2 = height;
+    this.getArea = function () {
+        return this.num1 * this.num2;
+    };
 }
 
 var rect = new Rectangle(4, 5);
 rect.getArea();
 
 function Square(num) {
-    this.num3 = num;
+    return Rectangle.prototype.getArea;
 }
 
-Square.prototype.getArea = function () {
-    console.log(this.num3 * this.num3);
-};
+// Square.prototype.getArea = function () {
+//     console.log(this.num3 * this.num3);
+// };
 var square = new Square(4);
 square.getArea();
 
