@@ -28,6 +28,7 @@ header #menu {
 header #menu img {
     margin: 0;
     height: 30px;
+    cursor: pointer;
 }
 
 #splash {
@@ -111,6 +112,7 @@ footer {
 }
 
 .side-nav {
+    visibility: hidden;
     height: 100%;
     width: 20vw;
     position: fixed;
@@ -118,11 +120,23 @@ footer {
     right: 0;
     background-color: #fff;
     z-index: 1;
+    transition: 1s;
+}
+#overlay {
+    visibility: hidden;
+    height: 100%;
+    width: 20vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    transition: 1s;
 }
 
 .side-nav a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     color: blue;
     padding: 15px 8px 6px 16px;
 }
@@ -130,12 +144,22 @@ footer {
     padding: 15px 8px 6px 16px;
     margin-top: 5px;
 }
-
-.log a {
-    font-size: 15;
+#x {
+    position: relative;
+    left: 150px;
+    bottom: 10px;
 }
-.side-nav a:hover {
+#log {
+    font-size: 18px;
+}
+a:hover {
     color: aqua;
+}
+
+.on {
+    transition-property: transform;
+    transition-duration: 1s;
+    transform: translateX(200%);
 }
 
 @media (max-width: 500px) {
@@ -163,11 +187,11 @@ footer {
         display: block;
     }
 }
-
 @media (prefers-color-scheme: dark) {
     body,
-    .overlay,
-    .side-nav,
+    /* .overlay,
+    #overlay,
+    .side-nav, */
     #benefits {
         background-color: #333333;
         color: white;
@@ -177,7 +201,7 @@ footer {
         color: #eee;
     }
 
-    #splash .container {
+    #splash #overlay {
         background-color: rgba(0, 0, 0, 0.5);
     }
 
