@@ -42,7 +42,7 @@ header #menu img {
     vertical-align: bottom;
     width: 100%;
 }
-#splash .container {
+#splash #lay {
     position: absolute;
     top: 0;
     left: 0;
@@ -111,36 +111,36 @@ footer {
     text-align: center;
 }
 
-.side-nav {
-    visibility: hidden;
+#side-nv {
+    /* visibility: hidden; */
+    transform: translateX(100%);
     height: 100%;
     width: 20vw;
     position: fixed;
     top: 0;
     right: 0;
     background-color: #fff;
-    z-index: 1;
+    z-index: 2;
     transition: 1s;
 }
 #overlay {
-    visibility: hidden;
-    height: 100%;
-    width: 20vw;
-    position: fixed;
+    /* visibility: hidden; */
+    position: absolute;
     top: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.9);
-    z-index: 1;
-    transition: 1s;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
 }
 
-.side-nav a {
+#side-nv a {
     text-decoration: none;
     font-size: 25px;
     color: blue;
     padding: 15px 8px 6px 16px;
 }
-.side-nav div {
+#side-nv div {
     padding: 15px 8px 6px 16px;
     margin-top: 5px;
 }
@@ -156,10 +156,17 @@ a:hover {
     color: aqua;
 }
 
-.on {
+#side-nv.on {
+    text-decoration: none;
+    margin-top: 5px;
+    text-decoration: none;
+    font-size: 25px;
+    color: blue;
+    padding: 15px 8px 6px 16px;
+    visibility: visible;
     transition-property: transform;
     transition-duration: 1s;
-    transform: translateX(200%);
+    transform: translateX(0%);
 }
 
 @media (max-width: 500px) {

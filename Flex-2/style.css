@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    height: 70px;
+    background-color: darkorange;
+}
+main {
+    display: flex;
+    height: 100vh;
+    background-color: slategrey;
+    justify-content: center;
+    align-items: center;
+}
+main img {
+    height: auto;
+    width: auto;
+}
+footer {
+    height: 30px;
+    background-color: salmon;
+}

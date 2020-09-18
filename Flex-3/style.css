@@ -1,0 +1,61 @@
+.box {
+    display: flex;
+    flex-direction: row;
+}
+
+.box1 {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    background-color: slategray;
+    height: 400px;
+    width: 400px;
+}
+
+.box2 {
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 10px;
+    background-color: black;
+    height: 400px;
+    width: 400px;
+}
+
+.box3 {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    background-color: blue;
+    height: 400px;
+    width: 400px;
+}
+.box4 {
+    margin: 10px;
+    background-color: purple;
+    height: 400px;
+    width: 400px;
+}
+.box1 div {
+    align-self: flex-end;
+    background-color: darkorange;
+    height: 200px;
+    width: 200px;
+}
+.box2 div {
+    align-self: flex-end;
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+    order: -1;
+}
+.box3 div {
+    align-self: flex-end;
+    background-color: green;
+    height: 200px;
+    width: 200px;
+}
+.box4 div {
+    background-color: pink;
+    height: 200px;
+    width: 200px;
+}
