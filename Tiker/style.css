@@ -1,18 +1,48 @@
-#headlines {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.ticker {
     position: absolute;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px black solid;
+    height: 2em;
+    line-height: 2em;
+    overflow: hidden;
+}
+#ticker2 {
+    bottom: 0;
+    border-bottom: 0;
+    border-top: 1px black solid;
+}
+
+#ticker1 .headlines {
     left: 100%;
+}
+
+#ticker2 .headlines {
+    right: 100%;
+}
+
+.headlines {
+    position: absolute;
+    top: 0;
     white-space: nowrap;
 }
 
-#headlines a {
-    padding-right: 30px;
-    border: 1px tomato solid;
+.headline {
+    font-family: sans-serif;
+    padding-right: 50px;
+    text-decoration: none;
+    color: black;
 }
 
-#ticker {
-    /* overflow: hidden; */
-    width: 100%;
-    position: relative;
-    border: 2px sienna solid;
-    height: 1.5em;
+.headline:hover {
+    color: blue;
+    text-decoration: underline;
 }
