@@ -1,0 +1,15 @@
+div {
+    /* display: flex;
+    position: relative; */
+    background-color: cadetblue;
+    width: 350px;
+    margin: 0 auto;
+}
+textarea {
+    /* position: absolute; */
+    display: flex;
+    align-self: center;
+    height: 100px;
+    width: 300px;
+    border-radius: 5%;
+}

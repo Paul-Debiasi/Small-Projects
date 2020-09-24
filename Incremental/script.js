@@ -1,6 +1,6 @@
 (function (countries) {
     var searchField = $("input");
-    var searchField = $('input[name="search"]');
+    // var searchField = $('input[name="search"]');
     var resultsDiv = $(".results");
 
     searchField.on("input", function (e) {
@@ -39,10 +39,12 @@
     });
 
     $(".results").on("mouseover", "p", function (e) {
-        $(e.targert).addClass(".highlight");
-    });
-    $(".results").on("mouseleave", "p", function (e) {
-        $(e.targert).removeClass(".highlight");
+        console.log();
+        $(".country").removeClass("highlight");
+        $(e.target).addClass("highlight");
+        // });
+        // $(".results").on("mouseleave", "p", function (e) {
+        //     $(e.target).removeClass("highlight");
     });
     // resultsDiv.on("input", function (e) {
     //     resultsDiv.html(htmlForCountries).slideToggle();
