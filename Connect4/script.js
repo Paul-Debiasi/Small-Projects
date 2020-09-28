@@ -37,23 +37,34 @@
         if (i === -1) {
             return;
         }
+        var winner2 = $("#winningMessage");
+        var winner = $("#winningMessage");
+        var hide = $("#hidden");
+
         var slotsInRow = $(".row" + i);
         if (checkForVictory(slotsInCol)) {
             if (currentPlayer === "player1") {
-                $("#hidden").show().addClass("reset");
-
+                // hide.show().addClass("reset");
+                hide.html("Player I Win!!");
                 winner.addClass("winning-message");
-            } else if (currentPlayer === "player2") {
-                console.log("player 2 Win!");
-                winner.addClass("winning-message2");
+            }
+            if (currentPlayer === "player2") {
+                hide.html("Player II Win!!");
+                winner.addClass("winning-message");
+                console.log();
             }
         } else if (checkForVictory(slotsInRow)) {
+            // var winner2 = $("#winningMessage");
+            var winner = $("#winningMessage");
+            var hide = $("#hidden");
             if (currentPlayer === "player1") {
+                hide.html("Player I Win!!");
                 winner.addClass("winning-message");
-                $("#hidden").show().addClass("reset");
-            } else if (currentPlayer === "player2") {
-                winner.addClass("winning-message2");
-                console.log("player 2 Win!");
+                hide.html("Player I Win!!");
+            }
+            if (currentPlayer === "player2") {
+                winner.addClass("winning-message");
+                hide.html("Player II Win!!");
             }
         }
 
@@ -64,19 +75,21 @@
     var winner2 = $("#winningMessage2");
     var allSlot = $(".slot");
     $(".reset").on("click", function () {
+        // $("#hidden").html("").hide();
         allSlot.removeClass("player1");
         console.log("allSlot", allSlot.length);
         allSlot.removeClass("player2");
         if (winner.hasClass("winning-message")) {
             winner.removeClass("winning-message");
-            winner2.addClass("winning-message2");
         }
-        if (winner.hasClass("winning-message"))
-            if (hide === hide.show()) {
-                hide = hide.hide();
-            } else if (hide === hide.hide()) {
-                hide = hide.show();
-            }
+        if (winner.hasClass("winning-message2")) {
+            winner.removeClass("winning-message2");
+        }
+        // if (hide === hide.show()) {
+        //     hide = hide.hide();
+        // } else if (hide === hide.hide()) {
+        //     hide = hide.show();
+        // }
     });
     ////////////////////////////////////////////////////////////////
     // function checkWinner(slotsInCol, slotsInRow) {
