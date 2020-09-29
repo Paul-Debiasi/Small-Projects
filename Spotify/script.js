@@ -96,7 +96,6 @@
         });
     }); // closes the submit btn event handler
 })(); // iife closed
-
 // "<div>" +
 //     "<a href='" +
 //     ourUrl +
@@ -107,3 +106,10 @@
 //     "'>" +
 //     "</a>" +
 //     "</div>";
+// responseData = {
+//     response: response.items,
+// };
+
+// console.log(responseData);
+// var myCompiledTemplate = Handlebars.templates.spotify(responseData);
+// $("#results-container").html(myCompiledTemplate);

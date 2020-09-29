@@ -18,28 +18,24 @@
         <div id="results-container"></div>
         <script id="spotify" type="text/x-handlebars-template">
             {{#response}}
-            <!-- <div class="card"> -->
-
-             <h2>{{name}}</h2>
+                <!-- <div class="values abilities-values">
+                              <a href={{external_urls.spotify}}>
+                                  <img src={{images.0.url}} alt="" />
+                                  <h2>{{name}}</h2>
+                                      
+                                 
+               </a>
+                <h2>{{name}}</h2> -->
 
                 <!-- <div class="properties type">Type:</div> -->
                 <div class="values type-values">
-                    <img src={{{image}}} alt="">
-
+                    <a href={{external_urls.spotify}}>
+                        <img src={{images.0.url}} alt="" />
+                        <h2>
+                            {{name}}
+                        </h2>
+                    </a>
                 </div>
-
-                <!-- <div class="properties abilities">Abilities:</div>
-                <div class="values abilities-values">
-                    {{#abilities}}
-                        <p>{{ . }}</p>
-                    {{/abilities}}
-                </div> -->
-
-                <!-- <div class="properties weight">Weight:</div>
-                <div class="values weight-values">
-                    <p>{{weight}}</p> -->
-                <!-- </div> -->
-            </div>
             {{/response}}
         </script>
         <button class="load-more">More</button>
