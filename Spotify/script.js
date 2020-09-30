@@ -16,7 +16,6 @@
         console.log("user wants information on:", userInput);
         var albumOrArtist = $("select").val();
         console.log("user want either artist or album?", albumOrArtist);
-        var loadMore = $(".load-more");
         //var baseUrl = 'https://spicedify.herokuapp.com/spotify';
 
         $.ajax({
@@ -40,61 +39,82 @@
                 var myCompiledTemplate = Handlebars.templates.spotify(
                     responseData,
                 );
-                $("#results-container").html(myCompiledTemplate);
-                // console.log('Response:', response);
-
-                // console.log('response.next:', response.next);
-                var nextUrl =
-                    response.next &&
-                    response.next.replace(
-                        "api.spotify.com/v1/search",
-                        "spicedify.herokuapp.com/spotify",
-                    );
-                console.log("next Url to make the request to:", nextUrl);
-
-                // $(".load-more").on("click", function () {
-                //     console.log("funziona");
-                // });
-                // // compose the html
-                // var myHtml = "";
-
-                // for (var i = 0; i < response.items.length; i++) {
-                // console.log('response.items[i]', response.items[i]);
-                //check if the result we are currently looping over has an image
-                // var imgUrl = "/default.jpg";
-                //     if (response.items[i].images.length > 0) {
-                //         imgUrl = response.items[i].images[0].url;
-                //     }
-                //     var ourUrl = response.items[i].external_urls.spotify;
-                //     console.log(ourUrl);
-                //     console.log(
-                //         "the image Url for" +
-                //             response.items[i].name +
-                //             " would be:",
-                //         imgUrl,
-                //     );
-                //     myHtml +=
-                //         "<div>" +
-                //         "<a href='" +
-                //         ourUrl +
-                //         "target=" +
-                //         "'>" +
-                //         response.items[i].name +
-                //         "<img src='" +
-                //         imgUrl +
-                //         "'>" +
-                //         "</a>" +
-                //         "</div>";
-                // }
-
-                // if (response.items.length === 0) {
-                //     myHtml = "No results found...";
-                // }
-
-                $("#results-container").html(myHtml);
+                $("#container").html(myCompiledTemplate);
+                handleNextUrl(data.next);
             },
         });
-    }); // closes the submit btn event handler
+    });
+    // console.log('response.next:', response.next);
+    var nextUrl =
+        response.next &&
+        response.next.replace(
+            "api.spotify.com/v1/search",
+            "spicedify.herokuapp.com/spotify",
+        );
+    console.log("next Url to make the request to:", nextUrl);
+    var moreButton = $("#more");
+    moreButton.hide();
+    $(document).on("click", "#more", function (req, res) {
+        console.log("#more");
+        $.ajax({
+            url: nextUrl,
+            method: "GET",
+            success: function (data) {
+                data = data.artists || data.albums;
+
+                handleNextUrl(data.next);
+                checkScrollPos();
+                results.append(getResultHtml(data.items));
+                console.log(data.items);
+            },
+        });
+    });
+
+    function handleNextUrl(nextUrl) {
+        nextUrl =
+            response.next &&
+            response.next.replace(
+                "api.spotify.com/v1/search",
+                "spicedify.herokuapp.com/spotify",
+            );
+        if (!nextUrl) {
+            $("#more").hide();
+        } else {
+            $("#more").show();
+        }
+    }
+
+    $("#container").html(myHtml);
+
+    // function checkScrollPos() {
+    //     var hasScrolledToBottom; // set to true if the height of the window plus the scroll top is greater than or equal to the height of the page minus a reasonable buffer
+    //     if (hasScrolledToBottom) {
+    //         // go get more!
+    //     } else {
+    //         setTimeout(checkScrollPos, 500);
+    //     }
+    // }
+
+    function checkScrollPos() {
+        if (location.search.indexOf("scroll=infinite") > -1) {
+            moreButton.hide();
+            if (
+                $(window).height() + $(document).scrollTop() >=
+                $(document).height() - 300
+            ) {
+                var hasScrolledToBottom = true;
+            }
+            if (hasScrolledToBottom) {
+                if (newUrl) {
+                    getMore();
+                }
+            } else {
+                setTimeout(checkScrollPos, 500);
+            }
+        }
+    }
+
+    // closes the submit btn event handler
 })(); // iife closed
 // "<div>" +
 //     "<a href='" +

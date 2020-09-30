@@ -12,33 +12,50 @@
             <select>
                 <option id="artist">artist</option>
                 <option id="album">album</option>
-            </select>
-            <button id="submit-btn">Yo gimme gimme</button>
-        </div>
-        <div id="results-container"></div>
+			</select>
+			<button id="submit-btn">Yo gimme gimme</button>
+		</div> 
+		<button id="more">More</button>
+        <div id="container">
+        <div class="card">
         <script id="spotify" type="text/x-handlebars-template">
-            {{#response}}
-                <!-- <div class="values abilities-values">
-                              <a href={{external_urls.spotify}}>
-                                  <img src={{images.0.url}} alt="" />
-                                  <h2>{{name}}</h2>
-                                      
-                                 
-               </a>
-                <h2>{{name}}</h2> -->
+                    {{#response}}
+                        <!-- <div class="values type-values">
+                            <a href={{external_urls.spotify}}>
+                                <img src={{images.0.url}} alt="" />
+                                <h2>
+                                    {{name}}
+                                </h2>
+                            </a>-->
+           
 
-                <!-- <div class="properties type">Type:</div> -->
-                <div class="values type-values">
-                    <a href={{external_urls.spotify}}>
-                        <img src={{images.0.url}} alt="" />
-                        <h2>
-                            {{name}}
-                        </h2>
-                    </a>
-                </div>
-            {{/response}}
+                         <a href={{external_urls.spotify}}><img src={{images.0.url}} alt=""></a>
+                          <a href={{external_urls.spotify}}><h2>{{name}}</h2></a>
+
+                        <div class="properties type">Type:</div>
+                        <div class="values type-values">
+                            {{#type}}
+                                <p>{{ this }}</p>
+                            {{/type}}
+                        </div>
+
+                        <div class="properties abilities">Genres:</div>
+                        <div class="values abilities-values">
+                            {{#genres}}
+                                <p>{{ . }}</p>
+                            {{/genres}}
+                        </div>
+
+                        <div class="properties weight">Popularity:</div>
+                        <div class="values weight-values">
+                            <p>{{popularity}}</p>
+                        </div>
+						{{/response}}
+					</div>
+				</div>
+					
+				
         </script>
-        <button class="load-more">More</button>
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
         <script src="script.js"></script>
