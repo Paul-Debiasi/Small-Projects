@@ -48,8 +48,16 @@ http.createServer((req, res) => {
             return res.end();
         }
         if (stats.isFile()) {
-            path.extname(extPath);
-            console.log(extPath);
+            // path.extname(extPath);
+            // console.log(extPath);
+            const readStreamHtml = fs.createReadStream(filePath);
+            res.setHeader("Content-Type", extPath[path.extname(filePath)]);
+            readStreamHtml.pipe(res);
+            readStreamHtml.on("error", (err) => {
+                console.log("err in readStreamHtml: ", err);
+                res.statusCode = 500;
+                res.end();
+            });
         } else {
             console.log("its a directory");
             if (req.url.endsWith("/")) {

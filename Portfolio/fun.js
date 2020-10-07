@@ -1,10 +1,6 @@
 function generateHtml() {
     const fs = require("fs");
     let myPath = "projects";
-
-    // let dirBuf = Buffer.from(directory);
-    // console.log(dirBuf);
-
     const directory = fs.readdirSync(myPath, { withFileTypes: true });
     let myHtml = `<!DOCTYPE html><html><h1>My Portfolio</h1>`;
     for (let i = 0; i < directory.length; i++) {
