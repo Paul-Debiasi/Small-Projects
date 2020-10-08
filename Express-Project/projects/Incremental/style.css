@@ -1,0 +1,17 @@
+.container {
+    border: 2px solid black;
+    width: 350px;
+    margin: 0 auto;
+}
+
+.highlight {
+    /* position: absolute; */
+    /* width: 200px; */
+    background-color: dimgrey;
+    color: white;
+}
+
+/* p:hover {
+    cursor: pointer;
+    color: aqua;
+} */
