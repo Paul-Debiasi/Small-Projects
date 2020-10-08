@@ -1,11 +1,24 @@
 const { urlencoded } = require("express");
 // is a function that return an obj full of method
 const express = require("express");
-
 const app = express();
-
 const cookieParser = require("cookie-parser");
+const basicAuth = require("basic-auth");
 
+const auth = function (req, res, next) {
+    const creds = basicAuth(req);
+    if (!creds || creds.name != "Uglyspoti" || creds.pass != "Audioslave") {
+        res.setHeader(
+            "WWW-Authenticate",
+            'Basic realm="Enter your credentials to see this stuff."',
+        );
+        res.sendStatus(401);
+    } else {
+        next();
+    }
+};
+
+app.use("/spotify", auth);
 // We are adding a piece of middle-ware in order to receive info from our form
 app.use(express.urlencoded({ extended: false }));
 
