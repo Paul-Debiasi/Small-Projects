@@ -4,6 +4,7 @@ const https = require("https");
 module.exports.getToken = function (callback) {
     let creds = `${Key}:${Secret}`;
     let encodedCreds = Buffer.from(creds).toString("base64");
+    console.log("creds:", creds);
 
     const options = {
         method: "POST",
@@ -84,6 +85,18 @@ module.exports.getTweets = function (bearerToken, callback) {
 };
 
 module.exports.filterTweets = function (tweets) {
+    let tweet = [];
+
+    let tweetArr = tweets.filter((tweet) => tweet.entities.urls.length === 1);
+
+    tweetArr.forEach((arg) => {
+        tweet.push({
+            text: arg["full_text"].split("http")[0],
+            href: arg.entities.urls[0].url,
+        });
+        console.log(arg.entities.urls);
+    });
+    return tweet;
     // this function will tidy up the tweets
     // you will do this :)
 };
