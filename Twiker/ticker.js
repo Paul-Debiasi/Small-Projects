@@ -15,6 +15,7 @@ module.exports.getToken = function (callback) {
         },
     };
     function cb(response) {
+        console.log("function running");
         if (response.statusCode != 200) {
             console.log("something went wrong...", response.statusCode);
             // something went wrong...
@@ -48,12 +49,11 @@ module.exports.getTweets = function (bearerToken, callback) {
         // url:
         //     "http//api.twitter.com/1.1/search/tweets.json?q=nasa&result_type=popular",
         host: "api.twitter.com",
-        path: "/1.1/search/tweets.json?q=nasa&result_type=popular",
+        path:
+            "/1.1/statuses/user_timeline.json?screen_name=nasa&tweet_mode=extended",
         headers: {
-            Authorization: `Basic ${encodedCreds}`,
-            "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+            Authorization: `Bearer ${bearerToken}`,
         },
-        screen_name: "NASA",
     };
 
     function cb(response) {

@@ -5,7 +5,7 @@ const { getToken, getTweets, filterTweets } = require("./ticker.js");
 
 app.use(express.static("./Ticker"));
 
-app.get("./links.json", (req, res) => {
+app.get("/links.json", (req, res) => {
     console.log("requesting JSON!!!!!");
     // 4 thing we want to do here...
     // 1. We want to ask the twitter API for a token
