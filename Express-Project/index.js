@@ -4,10 +4,12 @@ const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
 const basicAuth = require("basic-auth");
-
+const hb = require("express-handlebars");
+app.engine("handlebars", hb());
+m;
 const auth = function (req, res, next) {
     const creds = basicAuth(req);
-    if (!creds || creds.name != "Uglyspoti" || creds.pass != "Audioslave") {
+    if (!creds || creds.name != "discoduck" || creds.pass != "opensesame") {
         res.setHeader(
             "WWW-Authenticate",
             'Basic realm="Enter your credentials to see this stuff."',

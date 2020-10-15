@@ -40,6 +40,11 @@ module.exports.getToken = function (callback) {
     // this function will get the token from twitter
     // we will do it in the encounter :)
 };
+// const callbackFunction = util.promisify(module.exports.getToken);
+// callbackFunction((err, ret) => {
+//     if (err) throw err;
+//     console.log(ret);
+// });
 
 module.exports.getTweets = function (bearerToken, callback) {
     // let creds = `${Key}:${Secret}`;

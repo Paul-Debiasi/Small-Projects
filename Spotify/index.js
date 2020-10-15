@@ -17,7 +17,7 @@
         var albumOrArtist = $("select").val();
         console.log("user want either artist or album?", albumOrArtist);
         //var baseUrl = 'https://spicedify.herokuapp.com/spotify';
-
+        var bigContainer = $("#container");
         $.ajax({
             //this will make the request to our proxi API
             url: "https://spicedify.herokuapp.com/spotify",
@@ -31,44 +31,52 @@
                 var response = responseData.artists || responseData.albums;
                 // console.log('response from the Spotify API:', responseData);
                 // var urlSpot = external_urls.spotify;
+
                 responseData = {
                     response: response.items,
                 };
-
-                console.log(responseData);
                 var myCompiledTemplate = Handlebars.templates.spotify(
                     responseData,
                 );
-                $("#container").html(myCompiledTemplate);
+                bigContainer.html(myCompiledTemplate);
                 handleNextUrl(data.next);
+                checkScrollPos();
             },
         });
     });
     // console.log('response.next:', response.next);
-    var nextUrl =
-        response.next &&
-        response.next.replace(
-            "api.spotify.com/v1/search",
-            "spicedify.herokuapp.com/spotify",
-        );
-    console.log("next Url to make the request to:", nextUrl);
+    // var nextUrl =
+    //     response.next &&
+    //     response.next.replace(
+    //         "api.spotify.com/v1/search",
+    //         "spicedify.herokuapp.com/spotify",
+    //     );
+
     var moreButton = $("#more");
     moreButton.hide();
-    $(document).on("click", "#more", function (req, res) {
-        console.log("#more");
+    moreButton.on("click", checkMore);
+    function checkMore() {
         $.ajax({
             url: nextUrl,
             method: "GET",
-            success: function (data) {
-                data = data.artists || data.albums;
+            success: function (secondData) {
+                secondData = data.artists || data.albums;
 
                 handleNextUrl(data.next);
-                checkScrollPos();
-                results.append(getResultHtml(data.items));
+
+                secondData = {
+                    data: data.items,
+                };
+                var myCompiledTemplate2 = Handlebars.templates.spotify(
+                    responseData,
+                );
+
+                bigContainer.append(html(myCompiledTemplate2));
                 console.log(data.items);
+                checkScrollPos();
             },
         });
-    });
+    }
 
     function handleNextUrl(nextUrl) {
         nextUrl =
@@ -78,9 +86,9 @@
                 "spicedify.herokuapp.com/spotify",
             );
         if (!nextUrl) {
-            $("#more").hide();
+            moreButton.hide();
         } else {
-            $("#more").show();
+            moreButton.show();
         }
     }
 
@@ -105,8 +113,8 @@
                 var hasScrolledToBottom = true;
             }
             if (hasScrolledToBottom) {
-                if (newUrl) {
-                    getMore();
+                if (nextUrl) {
+                    checkMore();
                 }
             } else {
                 setTimeout(checkScrollPos, 500);

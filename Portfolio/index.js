@@ -55,7 +55,7 @@ http.createServer((req, res) => {
             readStreamHtml.pipe(res);
             readStreamHtml.on("error", (err) => {
                 console.log("err in readStreamHtml: ", err);
-                res.statusCode = 500;
+                res.statusCode = 200;
                 res.end();
             });
         } else {
