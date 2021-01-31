@@ -1,0 +1,19 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+header {
+    height: 70px;
+    background-color: darkorange;
+}
+main {
+    height: 100vh;
+    background-color: slategrey;
+}
+footer {
+    height: 30px;
+    background-color: salmon;
+}

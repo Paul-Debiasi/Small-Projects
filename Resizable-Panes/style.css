@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+#my-panes {
+    display: flex;
+    position: relative;
+    width: 1200px;
+    height: 600px;
+    background-color: aqua;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    object-fit: cover;
+    width: 1200px;
+    height: 600px;
+    z-index: 1;
+}
+
+#resize-me {
+    position: absolute;
+    object-fit: cover;
+    width: 1200px;
+    height: 600px;
+}
+
+#drag-me {
+    position: absolute;
+    width: 10px;
+    height: 600px;
+    background: gray;
+    z-index: 3;
+    cursor: pointer;
+}
